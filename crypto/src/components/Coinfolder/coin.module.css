@@ -1,0 +1,59 @@
+
+.container{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;       
+}
+nav{
+   display: flex; 
+   justify-content: center; 
+   margin: 1px;
+   height: 70px;
+}
+.connect{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 4px;
+
+}
+.open{
+    text-align: center;
+    font-size: 17px;
+    font-weight: 500;
+    margin-top: 30px;
+    letter-spacing: 1px;
+}
+.coinContainer{
+    max-width: auto; /* Optional: Set a max width for better appearance */
+    height: auto;
+    margin-top: 40px;
+    display: grid;  /* Use CSS Grid */
+    grid-template-columns: repeat(6, 1fr);  /* 6 items per row */
+    grid-gap: 20px;  /* Space between the items */
+    margin-bottom: 60px;
+}
+.coinItem {
+    text-align: center;
+    margin: 10px;
+}
+.icon{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+@media screen and (max-width: 581px) {
+  .coinContainer{
+    display: grid;  /* Use CSS Grid */
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap:10px ;
+  }
+  .icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+}
