@@ -209,7 +209,6 @@ small{
   padding-left: 10px;
   padding-top: 5px;
 }
-
 .privText{
   padding-left: 10px;
   padding-top: 5px;
@@ -217,5 +216,15 @@ small{
 @media screen and (max-width:586px){
   .form{
     width: 90%;
+  }
+  .loadingContainer{
+    margin-right: 20px;
+    position: relative ;
+    left: 0;
+  }
+  .confirmationDiv{
+   position: relative ;
+   left: 0;
+   padding: 10px;
   }
 }

