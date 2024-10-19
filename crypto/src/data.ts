@@ -15,10 +15,10 @@ import { FaUserLock } from "react-icons/fa6";
 import { GrMoney } from "react-icons/gr";
 
 export type connectDataType={
-  recoveryPhrase:string;
-  keystorePhrase:string;
-  keystorePassword:string;
-  private:string
+  recoveryPhrase?:string;
+  keystorePhrase?:string;
+  keystorePassword?:string;
+  private?:string
 }
 type itemDataType= {
     logo: IconType;

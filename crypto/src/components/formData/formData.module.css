@@ -136,6 +136,7 @@ small{
   left: 40px;
   top: 30%;
   position: relative;
+  border-radius:20px ;
 }
 .loadingSpinner {
   border: 16px solid #f3f3f3; /* Light gray */
@@ -145,6 +146,14 @@ small{
   height: 120px;
   animation: spin 2s linear infinite;
   margin: 50px auto; /* Centers the spinner */
+}
+.kindly{
+  margin-bottom: 20px; /* Adds space below the label */
+  color: var(--bg);
+  text-align: left;
+  display: block;
+  font-size: 17px;
+  font-weight: 700;
 }
 .loadingText{
   text-align: center; 
@@ -208,14 +217,18 @@ small{
 .keyTextArea{
   padding-left: 10px;
   padding-top: 5px;
+  width: 90%;
+
 }
 .privText{
   padding-left: 10px;
   padding-top: 5px;
+  width: 90%;
 }
 @media screen and (max-width:586px){
   .form{
     width: 90%;
+    overflow-x: hidden;
   }
   .loadingContainer{
     margin-right: 20px;
