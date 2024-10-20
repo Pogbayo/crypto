@@ -128,7 +128,7 @@ type ImageData = {
         width: 50,
         height: 50,
       },
-      name: '',
+      name: 'Wallet-connect',
     },
     {
       img: {

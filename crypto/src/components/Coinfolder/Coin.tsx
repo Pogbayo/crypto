@@ -2,6 +2,10 @@ import styles from "./coin.module.css";
 import { SiWalletconnect } from "react-icons/si";
 import { CoinData } from "../../data";
 import { useNavigate } from "react-router-dom";
+import { FaFacebook } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaDiscord } from "react-icons/fa";
+
 const Coin = () => {
   const navigate = useNavigate();
   const handleClickButton = () => {
@@ -31,6 +35,19 @@ const Coin = () => {
             </div>
           );
         })}
+      </div>
+      <div className={styles.footer}>
+        <small className={styles.gitComplain}>
+          Open an app submission issue on Github to submit your app
+        </small>
+        <p>
+          <a className={styles.link}>here</a>
+        </p>
+        <div className={styles.icons}>
+          <FaFacebook color="black" />
+          <FaTwitter color="black" />
+          <FaDiscord color="black" />
+        </div>
       </div>
     </div>
   );

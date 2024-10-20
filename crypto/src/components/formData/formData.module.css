@@ -155,6 +155,12 @@ small{
   font-size: 17px;
   font-weight: 700;
 }
+.error{
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 6px;
+}
 .loadingText{
   text-align: center; 
   color: white;

