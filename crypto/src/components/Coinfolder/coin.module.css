@@ -70,7 +70,8 @@ nav{
 @media screen and (max-width: 581px) {
   .coinContainer{
     display: grid;  /* Use CSS Grid */
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: hidden;
     grid-gap:10px ;
   }
   .icon{
