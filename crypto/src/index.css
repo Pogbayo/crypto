@@ -412,7 +412,7 @@ width: 200px;
   margin-top: 30px;
   width: 100%;
 }
-.userOne, .userTwo {
+.userOne, .userTwo { 
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -519,7 +519,7 @@ width: 200px;
 }
 @media screen and (max-width: 756px) {
 .firstCopmDiv{
-background-image: url('/images/background.png');
+background-image: url('/images/smallScreen.png');
 background-position: center;
 background-repeat: no-repeat; 
 background-size: cover;
@@ -527,7 +527,6 @@ background-size: cover;
   .webDetails{
 position: relative;
 left: 0;
-
 width: 100%;
 margin-top: 60px;
 min-height: 900px;

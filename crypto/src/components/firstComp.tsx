@@ -104,7 +104,7 @@ const firstComp = () => {
                 <p className="itemIssue">{item.issues}</p>
                 <p className="itemIssueText">{item.issueText}</p>
                 <button onClick={handleClickButton} className="itemButton">
-                  Click here
+                  {item.buttonText}
                 </button>
               </div>
             );

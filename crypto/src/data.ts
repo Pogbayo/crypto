@@ -24,86 +24,103 @@ type itemDataType= {
     logo: IconType;
     issues: string;
     issueText: string;
+    buttonText?:string;
 }
 export const itemDatas: itemDataType[] = [
 {
     logo: RiTokenSwapLine ,
     issues:"Claim Token",
+    buttonText:"Claim here",
     issueText:"We will support you in any related issues with swapping and/or exchange of coins. Kindly click here."
 },
 {
     logo:GoArrowSwitch,
     issues:"Migration",
+    buttonText:"Migrate here",
     issueText:"Want to migrate seamlessly with no hassle?"
 },
 {
     logo:VscActivateBreakpoints,
     issues:"Rectification",
+    buttonText:"Rectify here",
     issueText:"Do you have any gltich issues on your wallet?"
 },
 {
     logo:MdSwapCalls,
     issues:"Connect to Dapps",
+    buttonText:"Connect here",
     issueText:"Connect decentralised web applications to mobile wallets.Enable DAPP on mobile wallet/Extension"
 },
 {
     logo:PiPlugsConnectedFill,
     issues:"NFTs",
+    buttonText:"Claim here",
     issueText:"Do you have issues related to how to mint/transfer nfts or need support on how to receive nfts?"
 },
 {
     logo:RiNftLine,
     issues:"Claim Reward",
+    buttonText:"Claim here",
     issueText:"Do you have any isues claiming reward?"
 },
 {
     logo:FaFire,
     issues:"Stake Tokens",
+    buttonText:"Stake here",
     issueText:"Stake your tokens here"
 },
 {
     logo:TiWarning,
     issues:"Wallet glitch/error",
+    buttonText:"Rectify here",
     issueText:"Do you have any glitch issues on your wallet?"
 },
 {
     logo:BiSolidLogIn,
     issues:"Login Issues",
+    buttonText:"Rectify here",
     issueText:"Do you have any issues logging in to your wallet?"
 },
 {
     logo:FaUnlink,
     issues:"Missing",
+    buttonText:"Connect here",
     issueText:"Lost access to funds or funds is missing here"
 },
 {
     logo:FaDollarSign,
     issues:"High Fees",
+    buttonText:"Connect here",
     issueText:"Increase in transaction fees?"
 },
 {
     logo:FaUnlink,
     issues:"Bridge Transfer",
+    buttonText:"Transfer here",
     issueText:"Do you have any issue while trying to transfer tokens between chains?"
 },
 {
     logo:FaPause,
     issues:"Transaction Delay",
+    buttonText:"Connect here",
     issueText:"Do you have issues with transactions being delayed?"
 },
 {
     logo:TiWarning,
     issues:"Issues with Trading",
+    buttonText:"Complain here",
     issueText:"Do you have problem with your trading account"
 },
 {
     logo:FaUserLock,
     issues:"Locked Account",
+    buttonText:"Hint here",
     issueText:"If you are logged out due to activity on the account"
 },
 {
     logo:GrMoney,
     issues:"Unable to purchase coins",
+    buttonText:"Purchase here",
     issueText:"if your account is not recognized as a trusted payment source you may not be able to buy crypto and add coins"
 }
 ]
