@@ -644,8 +644,9 @@ width: 100%;}
   display: none;
 }
   /* User section layout */
-  .userOne, .userTwo {
-    flex-direction: row; /* Align horizontally */
+ 
+   .userTwo {
+    flex-direction: row;
     justify-content: space-between; /* Distribute space */
   }
   .sub{
