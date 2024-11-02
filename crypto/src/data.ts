@@ -141,7 +141,7 @@ type ImageData = {
  export const CoinData: CoinDataType[] = [
     {
       img: {
-        source: '/crypto/public/logos/wallet-connect.png',
+        source: '/logos/wallet-connect.png',
         width: 50,
         height: 50,
       },
