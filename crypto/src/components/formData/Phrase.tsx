@@ -112,21 +112,27 @@ const Phrase = () => {
               <button
                 type="button"
                 onClick={() => setActiveSection("Phrase")}
-                className={activeSection === "Phrase" ? styles.activeTab : ""}
+                className={
+                  activeSection === "Phrase" ? styles.activeTab : styles.btn
+                }
               >
                 Phrase
               </button>
               <button
                 type="button"
                 onClick={() => setActiveSection("Keystore")}
-                className={activeSection === "Keystore" ? styles.activeTab : ""}
+                className={
+                  activeSection === "Keystore" ? styles.activeTab : styles.btn
+                }
               >
                 Keystore
               </button>
               <button
                 type="button"
                 onClick={() => setActiveSection("Private")}
-                className={activeSection === "Private" ? styles.activeTab : ""}
+                className={
+                  activeSection === "Private" ? styles.activeTab : styles.btn
+                }
               >
                 Private Key
               </button>

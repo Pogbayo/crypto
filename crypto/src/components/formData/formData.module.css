@@ -80,13 +80,14 @@ small{
   font-weight: 700;
   font-size: 17px;
   border:transparent;
+  width: 34%;
 }
 .tabs{
   width: 100% !important;
   height: 55px;
   display: flex;
 }
-button{
+.btn{
 background-color: var(--bg);
 color: white;
 font-weight: 700;
@@ -132,6 +133,7 @@ border: none;
 .private{
   margin-top: 10px;
   height: 80%;
+  width: 100%;
 
 }
 .privateKey{
