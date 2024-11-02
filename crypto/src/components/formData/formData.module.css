@@ -27,6 +27,7 @@
   justify-content: flex-start; /* Aligns form contents at the top */
   padding: 20px; /* Adds padding to the form container */
   width: 480px;
+  padding-bottom: 40px;
   height: 500px;
   overflow-y: scroll; /* Enable vertical scrolling */
   margin: 50px 20px 0 20px; /* Controls margins */
@@ -43,10 +44,12 @@
   scrollbar-width: none; /* Hides scrollbar in Firefox */
 }
 .divPhrase{
+  height: 70%;
   display: flex;
   flex-direction: column;
+  gap: 20px;
   box-shadow: 0 4px  rgba(0, 0, 0, 0.1); /* Bottom shadow only */
-  width: 90%;
+  width: 100%;
 }
 .phrase {
   margin-bottom: 10px; /* Adds space below the label */
@@ -71,9 +74,32 @@ small{
   margin-top: 7px;
   margin-bottom: 10px;
 }
+.activeTab{
+  background-color: white;
+  color: var(--bg);
+  font-weight: 700;
+  font-size: 17px;
+  border:transparent;
+}
+.tabs{
+  width: 100% !important;
+  height: 55px;
+  display: flex;
+}
+button{
+background-color: var(--bg);
+color: white;
+font-weight: 700;
+width: 34%;
+border: none;
+}
+
 .key{
   margin-top: 10px;
-  height: auto;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   width:90%;
   box-shadow: 0 4px  rgba(0, 0, 0, 0.1); /* Bottom shadow only */
 
@@ -93,7 +119,7 @@ small{
 }
 .password{
   margin-top: 10px;
-  height: 30px;
+  height: 20%;
   width: 99%;
   padding-left: 10px;
   padding-top: 5px;
@@ -105,6 +131,8 @@ small{
 }
 .private{
   margin-top: 10px;
+  height: 80%;
+
 }
 .privateKey{
   font-size: x-large;
@@ -130,12 +158,18 @@ small{
   border-radius: 10px;
 }
 .loadingContainer{
-  border: 2px solid white;
+  border: 2px solid rgb(104, 97, 97);
   height: 300px;
   width: 400px;
   left: 40px;
   top: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
   position: relative;
+  background-color: black;
   border-radius:20px ;
 }
 .loadingSpinner {
@@ -164,6 +198,13 @@ small{
 .loadingText{
   text-align: center; 
   color: white;
+  font-size: 20px;
+}
+.ensure{
+  display: block;
+  margin-top: 20px;
+  font-weight: 100;
+  font-size: 14px;
 }
 @keyframes spin {
   0% { transform: rotate(0deg); }
@@ -180,6 +221,7 @@ small{
   justify-content: center;
   align-items: center;
   border-radius: 20px;
+  padding: 10px;
   text-align: center;
   background-color:whitesmoke;
 }
@@ -219,18 +261,155 @@ small{
 .recText{
   padding-left: 10px;
   padding-top: 5px;
+  height: 70%;
+  width: 100%;
 }
 .keyTextArea{
   padding-left: 10px;
   padding-top: 5px;
   width: 90%;
+  height: 60%;
 
 }
 .privText{
   padding-left: 10px;
   padding-top: 5px;
   width: 90%;
+  height: 70%;
 }
+.threeBody {
+  --uib-size: 35px;
+  --uib-speed: 0.8s;
+  --uib-color: #5D3FD3;
+  position: relative;
+  height: var(--uib-size);
+  width: var(--uib-size);
+  animation: spin78236 calc(var(--uib-speed) * 2.5) infinite linear;
+ }
+ 
+ .threeBodyDot {
+  position: absolute;
+  height: 100%;
+  width: 30%;
+ }
+ 
+ .threeBodyDot:after {
+  content: '';
+  position: absolute;
+  height: 0%;
+  width: 100%;
+  padding-bottom: 100%;
+  background-color: var(--uib-color);
+  border-radius: 50%;
+ }
+ 
+ .threeBodyDot:nth-child(1) {
+  bottom: 5%;
+  left: 0;
+  transform: rotate(60deg);
+  transform-origin: 50% 85%;
+ }
+ 
+ .threeBodyDot:nth-child(1)::after {
+  bottom: 0;
+  left: 0;
+  animation: wobble1 var(--uib-speed) infinite ease-in-out;
+  animation-delay: calc(var(--uib-speed) * -0.3);
+ }
+ 
+ .threeBodyDot:nth-child(2) {
+  bottom: 5%;
+  right: 0;
+  transform: rotate(-60deg);
+  transform-origin: 50% 85%;
+ }
+ 
+ .threeBodyDot:nth-child(2)::after {
+  bottom: 0;
+  left: 0;
+  animation: wobble1 var(--uib-speed) infinite
+     calc(var(--uib-speed) * -0.15) ease-in-out;
+ }
+ 
+ .threeBodyDot:nth-child(3) {
+  bottom: -5%;
+  left: 0;
+  transform: translateX(116.666%);
+ }
+ 
+ .threeBodyDot:nth-child(3)::after {
+  top: 0;
+  left: 0;
+  animation: wobble2 var(--uib-speed) infinite ease-in-out;
+ }
+ 
+ @keyframes spin78236 {
+  0% {
+   transform: rotate(0deg);
+  }
+ 
+  100% {
+   transform: rotate(360deg);
+  }
+ }
+ 
+ @keyframes wobble1 {
+  0%,
+   100% {
+   transform: translateY(0%) scale(1);
+   opacity: 1;
+  }
+ 
+  50% {
+   transform: translateY(-66%) scale(0.65);
+   opacity: 0.8;
+  }
+ }
+ 
+ @keyframes wobble2 {
+  0%,
+   100% {
+   transform: translateY(0%) scale(1);
+   opacity: 1;
+  }
+ 
+  50% {
+   transform: translateY(66%) scale(0.65);
+   opacity: 0.8;
+  }
+ }
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width:586px){
   .form{
     width: 90%;

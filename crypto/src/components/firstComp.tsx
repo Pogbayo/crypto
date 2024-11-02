@@ -16,6 +16,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+
 const firstComp = () => {
   const schema: ZodType<MailType> = z.object({ email: z.string().email() });
   const { register, handleSubmit, reset } = useForm<MailType>({
